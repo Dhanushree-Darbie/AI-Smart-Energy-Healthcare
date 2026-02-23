@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVolt - Energy Optimization Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="card-header">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="MediVolt Logo" style="width: 80px; height: 80px; object-fit: contain; border-radius: 12px;">
+                </div>
+                <h1>MediVolt</h1>
+                <p>AI-Powered Energy Optimization</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="admin@hospital.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hospitalid">Hospital ID</label>
+                    <input type="text" id="hospitalid" placeholder="HOS-001234" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="/forgot-password" class="forgot">Forgot password?</a>
+                </div>
+                
+                <button type="submit">Sign In</button>
+            </form>
+            
+            <div class="card-footer">
+                <p>Secure Energy Management Platform</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "admin@hospital.com" && password === "admin123") {
+        localStorage.setItem("isLoggedIn", "true");
+
+        // 🔥 THIS LINE IS CRITICAL
+        window.location.href = "/dashboard";
+    } else {
+        alert("Invalid email or password");
+    }
+});
+</script>
+</body>
+</html>
+
+
