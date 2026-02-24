@@ -12,7 +12,7 @@ import time
 carbon_model = joblib.load("carbon_model.pkl")
 print("MODEL EXPECTS FEATURES:", carbon_model.n_features_in_)
 print("MODEL TYPE:", type(carbon_model))
-print("MODEL:", carbon_model)
+#print("MODEL:", carbon_model)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
